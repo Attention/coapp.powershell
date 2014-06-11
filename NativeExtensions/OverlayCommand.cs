@@ -83,9 +83,11 @@ namespace NativeExtensions {
             }
         }
 
-        protected override IPackageManager CreatePackageManager(IFileSystem packagesFolderFileSystem) {
+        protected override IPackageManager CreatePackageManager(IFileSystem packagesFolderFileSystem)//,bool useSideBySidePaths, bool checkDowngrade = true)
+        {
             var sourceRepository = GetRepository();
-            var pathResolver = new CustomPackagePathResolver(packagesFolderFileSystem, true) {
+            var pathResolver = new CustomPackagePathResolver(packagesFolderFileSystem, true)
+            {
                 OverlayDirectory = OverlayPackageDirectory
             };
             return new PackageManager(sourceRepository, pathResolver, packagesFolderFileSystem, new LocalPackageRepository(pathResolver, packagesFolderFileSystem)) { Logger = base.Console };

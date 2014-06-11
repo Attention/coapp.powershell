@@ -323,23 +323,43 @@ namespace CoApp.NuGetNativeMSBuildTasks {
                 }
 
                 // find the highest version nuget.exe (either on the PATH, or in the directory somewhere.)
-                _nugetExe = FindHighestBinary("nuget.exe", SolutionDirectory, true, true);
-                if (string.IsNullOrEmpty(_nugetExe)) {
-                    _nugetExe = FindHighestBinary("nuget.exe", PackageDirectory, true, true);
-                    if (string.IsNullOrEmpty(_nugetExe)) {
-                        Log.LogError("Unable to find nuget exe in PATH, SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
-                        return false;
-                    }
+                //_nugetExe = FindHighestBinary("nuget.exe", SolutionDirectory, true, true);
+                //if (string.IsNullOrEmpty(_nugetExe))
+                //{
+                //    _nugetExe = FindHighestBinary("nuget.exe", PackageDirectory, true, true);
+                //    if (string.IsNullOrEmpty(_nugetExe))
+                //    {
+                //        Log.LogError("Unable to find nuget exe in PATH, SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
+                //        return false;
+                //    }
+                //}
+
+                // can't use version >= 2.8,so just search in PackageDirectory ,and not search path
+                _nugetExe = FindHighestBinary("nuget.exe", PackageDirectory, true);
+                if (string.IsNullOrEmpty(_nugetExe))
+                {
+                    Log.LogError("Unable to find nuget exe in PATH, SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
+                    return false;
                 }
 
                 // find the highest version of the CoApp.NuGetNativeExtensions.dll file (somewhere in there too)
-                var extension = FindHighestBinary("CoApp.NuGetNativeExtensions.dll", SolutionDirectory, true);
-                if (string.IsNullOrEmpty(extension)) {
-                    extension = FindHighestBinary("CoApp.NuGetNativeExtensions.dll", PackageDirectory, true);
-                    if (string.IsNullOrEmpty(extension)) {
-                        Log.LogError("Unable to find CoApp.NuGetNativeExtensions.dll in SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
-                        return false;
-                    }
+                //var extension = FindHighestBinary("CoApp.NuGetNativeExtensions.dll", SolutionDirectory, true);
+                //if (string.IsNullOrEmpty(extension))
+                //{
+                //    extension = FindHighestBinary("CoApp.NuGetNativeExtensions.dll", PackageDirectory, true);
+                //    if (string.IsNullOrEmpty(extension))
+                //    {
+                //        Log.LogError("Unable to find CoApp.NuGetNativeExtensions.dll in SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
+                //        return false;
+                //    }
+                //}
+
+                // can't use version >= 2.8,so just search in PackageDirectory ,and not search path
+                var extension = FindHighestBinary("CoApp.NuGetNativeExtensions.dll", PackageDirectory, true);
+                if (string.IsNullOrEmpty(extension))
+                {
+                    Log.LogError("Unable to find CoApp.NuGetNativeExtensions.dll in SolutionDirectory ('{0}') or PackageDirectory ('{1}') ", SolutionDirectory, PackageDirectory);
+                    return false;
                 }
 
                 var location = Path.GetDirectoryName(extension);

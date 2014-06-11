@@ -43,24 +43,24 @@ for %%v in (clrplus*.dll) do "C:\Program Files (x86)\Windows Kits\8.0\bin\x86\si
 popd
 
 
-nuget pack  clrplus\Core\Core.nuspec
-nuget pack  clrplus\Windows.Api\Windows.Api.nuspec
-nuget pack  clrplus\Platform\Platform.nuspec
-nuget pack  clrplus\CommandLine\CommandLine.nuspec
-nuget pack  clrplus\Console\Console.nuspec
-nuget pack  clrplus\Crypto\Crypto.nuspec
-nuget pack  clrplus\Networking\Networking.nuspec
-nuget pack  clrplus\Remoting\Remoting.nuspec
-nuget pack  clrplus\Scripting\Scripting.nuspec
-nuget pack  clrplus\Scripting.MsBuild\Scripting.MsBuild.nuspec
-nuget pack  clrplus\Windows.Debugging\Windows.Debugging.nuspec
-nuget pack  clrplus\Windows.PeBinary\Windows.PeBinary.nuspec        
-nuget pack  clrplus\Powershell.Core\Powershell.Core.nuspec        
-rem nuget pack  clrplus\Powershell.Rest\Powershell.Rest.nuspec        
-nuget pack  clrplus\Powershell.Provider\Powershell.Provider.nuspec        
-nuget pack  clrplus\Powershell.Azure\Powershell.Azure.nuspec        
-nuget pack  clrplus\ClrPlus.Powershell.nuspec   
-nuget pack  clrplus\ClrPlus.nuspec  
+.nuget\nuget pack  clrplus\Core\Core.nuspec
+.nuget\nuget pack  clrplus\Windows.Api\Windows.Api.nuspec
+.nuget\nuget pack  clrplus\Platform\Platform.nuspec
+.nuget\nuget pack  clrplus\CommandLine\CommandLine.nuspec
+.nuget\nuget pack  clrplus\Console\Console.nuspec
+.nuget\nuget pack  clrplus\Crypto\Crypto.nuspec
+.nuget\nuget pack  clrplus\Networking\Networking.nuspec
+.nuget\nuget pack  clrplus\Remoting\Remoting.nuspec
+.nuget\nuget pack  clrplus\Scripting\Scripting.nuspec
+.nuget\nuget pack  clrplus\Scripting.MsBuild\Scripting.MsBuild.nuspec
+.nuget\nuget pack  clrplus\Windows.Debugging\Windows.Debugging.nuspec
+.nuget\nuget pack  clrplus\Windows.PeBinary\Windows.PeBinary.nuspec        
+.nuget\nuget pack  clrplus\Powershell.Core\Powershell.Core.nuspec        
+rem .nuget\nuget pack  clrplus\Powershell.Rest\Powershell.Rest.nuspec        
+.nuget\nuget pack  clrplus\Powershell.Provider\Powershell.Provider.nuspec        
+.nuget\nuget pack  clrplus\Powershell.Azure\Powershell.Azure.nuspec        
+.nuget\nuget pack  clrplus\ClrPlus.Powershell.nuspec   
+.nuget\nuget pack  clrplus\ClrPlus.nuspec  
 
 goto FIN
 
